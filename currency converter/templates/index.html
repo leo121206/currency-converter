@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Currency Converter</h1>
+    <input type="number" id="amount" placeholder="Amount">
+    <select id="from"></select>
+    <select id="to"></select>
+    <button onclick="convert()">Convert</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const from = document.getElementById("from");
+    const to = document.getElementById("to");
+    const result = document.getElementById("result");
+
+    async function loadCurrencies() {
+      const res = await fetch('https://api.frankfurter.app/currencies');
+      const data = await res.json();
+      for (let code in data) {
+        from.innerHTML += `<option value="${code}">${code}</option>`;
+        to.innerHTML += `<option value="${code}">${code}</option>`;
+      }
+      from.value = "USD";
+      to.value = "INR";
+    }
+
+    async function convert() {
+      const amount = document.getElementById("amount").value;
+      const res = await fetch('/convert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: amount,
+          from: from.value,
+          to: to.value
+        })
+      });
+
+      const data = await res.json();
+      result.textContent = `${amount} ${from.value} = ${data.converted} ${to.value}`;
+    }
+
+    loadCurrencies();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Background with subtle gradient */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Card container with glassmorphism effect */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+  width: 350px;
+  color: #fff;
+}
+
+/* Heading style */
+h1 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Input and select styling */
+input[type="number"],
+select {
+  width: 100%;
+  padding: 14px 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: #333;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+}
+
+/* Subtle scale up on focus */
+input[type="number"]:focus,
+select:focus {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Button styling with gradient and shadow */
+button {
+  width: 100%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border: none;
+  padding: 16px;
+  font-size: 1.2rem;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-top: 15px;
+  box-shadow: 0 8px 15px rgba(255, 75, 43, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+/* Hover effect on button */
+button:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  box-shadow: 0 12px 24px rgba(255, 65, 108, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Result text style */
+#result {
+  margin-top: 28px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: #fff;
+}
